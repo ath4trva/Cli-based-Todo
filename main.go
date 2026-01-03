@@ -3,5 +3,11 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println("Hello, World!")
+	todos:= Todos{}
+	todos.add("Learn Go")
+	todos.add("Build a Todo App")
+	
+	fmt.Printf("%+v\n\n", todos)
+	todos.delete(0)
+	fmt.Printf("%+v\n", todos)
 }
