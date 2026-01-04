@@ -4,10 +4,11 @@ package main
 
 func main() {
 	todos:= Todos{}
-	todos.add("Learn Go")
-	todos.add("Build a Todo App")
-	todos.toggle(0)
-	todos.print()
+	storage:= NewStorage[Todos]("todos.json")
+	storage.Load(&todos)
+	CmdFlags:= NewCmdFlags()
+	CmdFlags.Execute(&todos)
+	storage.Save(todos)
 }
 	
 	
